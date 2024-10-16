@@ -10,13 +10,13 @@ namespace PersonalTestDataGenerator
 {
     public class FakeInfoGenerator
     {
-        public string firstName;
+        public string firstName; // hvorfor er disse public? og ikke private eller en property?
         public string lastName;
         public string gender;
         public DateTime birthDate;
         public string cpr;
         public string postalcode;
-        public string street;
+        public string street; // er der en grund til at disse at vi gemmer adressen som fire strings i stedet for en Address?
         public string number;
         public string floor;
         public string door;
@@ -125,11 +125,11 @@ namespace PersonalTestDataGenerator
 
 
 
-        //Brug denne funktion til at sætte random address
-        //Du kan bruge private Address address; til at sætte data
-        //eksempler this.address.Street = street;
-        //this.address.Street = street;
-        //this.address.Number = number;
+        /* Brug denne funktion til at sætte random address
+           Du kan bruge private Address address; til at sætte data
+           eksempler this.address.Street = street;
+           this.address.Street = street;
+           this.address.Number = number;*/
         public void GenerateFakeAddress()
         {
             Random random = new Random();
