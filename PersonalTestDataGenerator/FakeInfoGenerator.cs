@@ -23,7 +23,7 @@ namespace PersonalTestDataGenerator
         public string town;
         public string phone;
         public string jsonFilePath = "NameData.json";
-        public string connectionString = "Server=mandatorytestserver.mysql.database.azure.com;Port=3306;Database=addresses;User ID=admin123;Password=Password123;Charset=utf8;";
+        public string connectionString = "Server=tcp:schoolworkkea.database.windows.net,1433;Initial Catalog=TestingMandatory;Persist Security Info=False;User ID=younzable;Password=-+9?B'eW4Z-^DwM;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         private MySqlConnection connection;
 
 
