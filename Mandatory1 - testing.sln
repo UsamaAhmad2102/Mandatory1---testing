@@ -10,6 +10,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mandatory1 - testing", "Man
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonalTestDataGenerator", "PersonalTestDataGenerator\PersonalTestDataGenerator.csproj", "{938301A3-240B-42A7-9B93-D5DA6134ACD2}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonDataAPI", "TestingAPI\PersonDataAPI.csproj", "{4C7346AD-8340-4CBE-ADB1-D583F0FF83DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{938301A3-240B-42A7-9B93-D5DA6134ACD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{938301A3-240B-42A7-9B93-D5DA6134ACD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{938301A3-240B-42A7-9B93-D5DA6134ACD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C7346AD-8340-4CBE-ADB1-D583F0FF83DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C7346AD-8340-4CBE-ADB1-D583F0FF83DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C7346AD-8340-4CBE-ADB1-D583F0FF83DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C7346AD-8340-4CBE-ADB1-D583F0FF83DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

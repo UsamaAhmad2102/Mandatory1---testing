@@ -9,7 +9,7 @@ namespace PersonalTestDataGenerator
 {
     public class PhoneGenerator
     {
-        public static string[] PhonePrefixes = new string[]
+        public static string[] PhonePrefixes = new String[]
         {
         "2", "30", "31", "40", "41", "42", "50", "51", "52", "53", "60", "61", "71", "81", "91", "92", "93",
         "342", "344", "345", "346", "347", "348", "349", "356", "357", "359", "362", "365", "366", "389",
