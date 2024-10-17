@@ -8,28 +8,31 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using PersonalTestDataGenerator.Models;
 
+
 namespace PersonalTestDataGenerator.Services
 {
     internal class MongoDB_Connection
-    { // dette er en test til at forbinde til MongoDB Atlas
-        // den burde ikke gøre andet end at forbinde til databasen
+    {
         const string connectionUri = "mongodb+srv://younzable:I12YCOUoBUUrb3Ah@mandatory1.czm3p.mongodb.net/?retryWrites=true&w=majority&appName=Mandatory1";
         IMongoClient client;
         IMongoCollection<Person> collection;
 
-        try{
-            client = new MongoClient(connectionUri);
-        var database = client.GetDatabase("Mandatory1");
-        collection = database.GetCollection<Person>("Persons");
-        }
-        catch (Exception e)
+        public MongoDB_Connection()
         {
-            Console.WriteLine("There was a problem connecting to your " +
-                              "Atlas cluster. Check that the URI includes a valid " +
-                              "username and password, and that your IP address is " +
-                              $"in the Access List. Message: {e.Message}");
-            Console.WriteLine(e);
-            return;
+            try
+            {
+                client = new MongoClient(connectionUri);
+                var database = client.GetDatabase("Mandatory1");
+                collection = database.GetCollection<Person>("Persons");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("There was a problem connecting to your " +
+                                  "Atlas cluster. Check that the URI includes a valid " +
+                                  "username and password, and that your IP address is " +
+                                  $"in the Access List. Message: {e.Message}");
+                Console.WriteLine(e);
+            }
         }
     }
 }
