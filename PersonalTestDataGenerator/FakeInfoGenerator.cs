@@ -10,20 +10,20 @@ namespace PersonalTestDataGenerator
 {
     public class FakeInfoGenerator
     {
-        public string firstName;
+        public string firstName; // hvorfor er disse public? og ikke private eller en property?
         public string lastName;
         public string gender;
         public DateTime birthDate;
         public string cpr;
         public string postalcode;
-        public string street;
+        public string street; // er der en grund til at disse at vi gemmer adressen som fire strings i stedet for en Address?
         public string number;
         public string floor;
         public string door;
         public string town;
         public string phone;
         public string jsonFilePath = "NameData.json";
-        public string connectionString = "Server=mandatorytestserver.mysql.database.azure.com;Port=3306;Database=addresses;User ID=admin123;Password=Password123;Charset=utf8;";
+        public string connectionString = "Server=tcp:schoolworkkea.database.windows.net,1433;Initial Catalog=TestingMandatory;Persist Security Info=False;User ID=younzable;Password=-+9?B'eW4Z-^DwM;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         private MySqlConnection connection;
 
 
@@ -125,11 +125,11 @@ namespace PersonalTestDataGenerator
 
 
 
-        //Brug denne funktion til at sætte random address
-        //Du kan bruge private Address address; til at sætte data
-        //eksempler this.address.Street = street;
-        //this.address.Street = street;
-        //this.address.Number = number;
+        /* Brug denne funktion til at sætte random address
+           Du kan bruge private Address address; til at sætte data
+           eksempler this.address.Street = street;
+           this.address.Street = street;
+           this.address.Number = number;*/
         public void GenerateFakeAddress()
         {
             Random random = new Random();

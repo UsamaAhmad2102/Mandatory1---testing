@@ -5,11 +5,16 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <UserSecretsId>200626dc-ed36-47bf-b896-e5eed6037a55</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MySql.Data" Version="8.1.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.1" />
+    <PackageReference Include="MongoDB.Bson" Version="3.0.0" />
+    <PackageReference Include="MongoDB.Driver" Version="3.0.0" />
+    <PackageReference Include="MongoDB.Driver.Core" Version="2.30.0" />
+    <PackageReference Include="MySql.Data" Version="9.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
