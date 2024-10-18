@@ -17,19 +17,22 @@ namespace PersonalTestDataGenerator.Services
         IMongoClient client;
         IMongoCollection<Person> collection;
 
-        try{
-            client = new MongoClient(connectionUri);
-        var database = client.GetDatabase("Mandatory1");
-        collection = database.GetCollection<Person>("Persons");
-        }
-        catch (Exception e)
+
+        private readonly IMongoCollection<Person> _personsCollection;
+
+        public MongoDB_Connection()
         {
-            Console.WriteLine("There was a problem connecting to your " +
-                              "Atlas cluster. Check that the URI includes a valid " +
-                              "username and password, and that your IP address is " +
-                              $"in the Access List. Message: {e.Message}");
-            Console.WriteLine(e);
-            return;
+            var client = new MongoClient("mongodb+srv://younzable:I12YCOUoBUUrb3Ah@mandatory1.czm3p.mongodb.net/?retryWrites=true&w=majority&appName=Mandatory1");  // Update the connection string if necessary
+            var database = client.GetDatabase("Mandatory1");
+            _personsCollection = database.GetCollection<Person>("persons");
         }
+
+        public void SavePersonsToDatabase(List<Person> persons)
+        {
+            _personsCollection.InsertMany(persons);
+        }
+
     }
+
+  
 }
