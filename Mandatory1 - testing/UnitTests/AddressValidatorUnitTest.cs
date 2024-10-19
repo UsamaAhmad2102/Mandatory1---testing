@@ -12,7 +12,7 @@ namespace Mandatory1___testing.UnitTests
     public class AddressValidatorUnitTest
     {
         [TestMethod]
-        [DataRow("1400")]
+        [DataRow("140")]
         [DataRow("140a")]
         [DataRow("99")]
         [DataRow("99b")]
