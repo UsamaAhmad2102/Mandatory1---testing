@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace PersonalTestDataGenerator.Services
 {
-    public abstract class Connections
+     public abstract class Connections
     {
-        protected string? ConnectionString;
+        protected string ConnectionString;
         public IConfiguration Configuration { get; }
 
         public Connections(IConfiguration configuration)
