@@ -7,23 +7,30 @@ using System.Threading.Tasks;
 
 namespace PersonalTestDataGenerator.Validation
 {
-    internal class AddressValidator
+    public class AddressValidator
     {
 
         public bool ValidateStreetNumber(string streetNumber)
         {
-            Regex regex = new(@"^\d{1,3}[a-zA-Z]?$");
+            Regex regex = new(@"^[1-9]\d{0,2}[a-zA-Z]?$");
             return regex.IsMatch(streetNumber);
 
         }
 
-        public bool ValidateFloor(string floor)
+        public bool ValidateDoor(string floor)
         {
             Regex firstNamingConvention = new Regex(@"^((th|mf|tv)?([1-9]|[1234][0-9]|50))$");
-            Regex secondNamingConvention = new Regex(@"^[a-z]-?\d{1,3}$");
+            Regex secondNamingConvention = new Regex(@"^[a-z]-?[1-9]\d{0,2}$");
             Regex floorMatcher = new($@"^(({firstNamingConvention})|({secondNamingConvention}))$");
 
             return floorMatcher.IsMatch(floor);
+        }
+
+        public bool ValidateFloor(string floor)
+        {
+            Regex regex = new(@"^(st|[1-9]\d?)$");
+            return regex.IsMatch(floor);
+
         }
 
         public bool ValidatePostalCode(string postalCode)

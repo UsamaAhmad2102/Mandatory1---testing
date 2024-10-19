@@ -12,21 +12,21 @@ namespace PersonalTestDataGenerator.Validation
     public class CprValidator
     {
 
-        public bool CheckDateOfBirthDay(string birthday, int birthmonth, int birthyear)
+        public bool CheckDateOfBirthDay(string birthday, int birthmonth)
         {
             Regex regex;
 
             if (birthmonth == 2)
             {
-                regex = new Regex(@"^(0[1-9]|[12][0-9]|3[01])$");
+                regex = new Regex(@"^(0[1-9]|[1][0-9]|2[0-8])$");
             }
             else if (birthmonth % 2 == 0)
             {
-                regex = new Regex(@"^(0[1-9]|[1][0-9]|2[0-8])$");
+                regex = new Regex(@"^(0[1-9]|[12][0-9]|30)$");
             }
             else
             {
-                regex = new Regex(@"^(0[1-9]|[12][0-9]|30)$");
+                regex = new Regex(@"^(0[1-9]|[12][0-9]|3[01])$");
             }
 
             return regex.IsMatch(birthday);
@@ -49,7 +49,7 @@ namespace PersonalTestDataGenerator.Validation
 
         public bool CheckLastFourDigits(string cpr, string gender)
         {
-            Regex regex = new Regex(@"^d{4}$");
+            Regex regex = new Regex(@"^\d{3}[1-9]$");
             bool isValid = false;
 
             if (regex.IsMatch(cpr))

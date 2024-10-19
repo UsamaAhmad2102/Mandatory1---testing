@@ -13,22 +13,22 @@ namespace Mandatory1___testing.UnitTests
     public class CprValidatorUnitTest
     {
         [TestMethod]
-        [DataRow("04", 2, 1970, true)]
-        [DataRow("14", 2, 1970, true)]
-        [DataRow("28", 2, 1970, true)]
-        [DataRow("01", 2, 1970, true)]
-        [DataRow("06", 3, 1970, true)]
-        [DataRow("23", 3, 1970, true)]
-        [DataRow("31", 3, 1970, true)]
-        [DataRow("01", 3, 1970, true)]
-        [DataRow("03", 4, 1970, true)]
-        [DataRow("18", 4, 1970, true)]
-        [DataRow("30", 4, 1970, true)]
-        [DataRow("01", 4, 1970, true)]
-        public void testBirthdayValidatorPositive(string birthday, int birthmonth, int birthyear) 
+        [DataRow("04", 2)]
+        [DataRow("14", 2)]
+        [DataRow("28", 2)]
+        [DataRow("01", 2)]
+        [DataRow("06", 3)]
+        [DataRow("23", 3)]
+        [DataRow("31", 3)]
+        [DataRow("01", 3)]
+        [DataRow("03", 4)]
+        [DataRow("18", 4)]
+        [DataRow("30", 4)]
+        [DataRow("01", 4)]
+        public void testBirthdayValidatorPositive(string birthday, int birthmonth) 
         {
             CprValidator cprValidator = new();
-            Boolean isValid = cprValidator.CheckDateOfBirthDay(birthday, birthmonth, birthyear);
+            Boolean isValid = cprValidator.CheckDateOfBirthDay(birthday, birthmonth);
 
             Assert.IsTrue(isValid);
 
@@ -36,31 +36,31 @@ namespace Mandatory1___testing.UnitTests
         }
 
         [TestMethod]
-        [DataRow("00", 2, 1970, false)]
-        [DataRow("29", 2, 1970, false)]
-        [DataRow("1a", 2, 1970, false)]
-        [DataRow("3", 2, 1970, false)]
-        [DataRow("00", 3, 1970, false)]
-        [DataRow("32", 3, 1970, false)]
-        [DataRow("a4", 3, 1970, false)]
-        [DataRow("6", 3, 1970, false)]
-        [DataRow("31", 4, 1970, false)]
-        [DataRow("00", 4, 1970, false)]
-        [DataRow("4b", 4, 1970, false)]
-        [DataRow("9", 4, 1970, false)]
-        public void testBirthdayValidatorNegative(string birthday, int birthmonth, int birthyear)
+        [DataRow("00", 2)]
+        [DataRow("29", 2)]
+        [DataRow("1a", 2)]
+        [DataRow("3", 2)]
+        [DataRow("00", 3)]
+        [DataRow("32", 3)]
+        [DataRow("a4", 3)]
+        [DataRow("6", 3)]
+        [DataRow("31", 4)]
+        [DataRow("00", 4)]
+        [DataRow("4b", 4)]
+        [DataRow("9", 4)]
+        public void testBirthdayValidatorNegative(string birthday, int birthmonth)
         {
             CprValidator cprValidator = new();
-            Boolean isValid = cprValidator.CheckDateOfBirthDay(birthday, birthmonth, birthyear);
+            Boolean isValid = cprValidator.CheckDateOfBirthDay(birthday, birthmonth);
 
             Assert.IsFalse(isValid);
         }
 
         [TestMethod]
-        [DataRow("01", true)]
-        [DataRow("12", true)]
-        [DataRow("06", true)]
-        [DataRow("09", true)]
+        [DataRow("01")]
+        [DataRow("12")]
+        [DataRow("06")]
+        [DataRow("09")]
         public void TestBirthMonthValidatorPositive(string birthmonth)
         {
             CprValidator cprValidator = new();
@@ -70,12 +70,12 @@ namespace Mandatory1___testing.UnitTests
         }
 
         [TestMethod]
-        [DataRow("00", false)]
-        [DataRow("13", false)]
-        [DataRow("6", false)]
-        [DataRow("3a", false)]
-        [DataRow("aa", false)]
-        [DataRow("120", false)]
+        [DataRow("00")]
+        [DataRow("13")]
+        [DataRow("6")]
+        [DataRow("3a")]
+        [DataRow("aa")]
+        [DataRow("120")]
         public void TestBirthMonthValidatorNegative(string birthmonth)
         {
             CprValidator cprValidator = new();
@@ -85,13 +85,13 @@ namespace Mandatory1___testing.UnitTests
         }
 
         [TestMethod]
-        [DataRow("00", true)]
-        [DataRow("99", true)]
-        [DataRow("01", true)]
-        [DataRow("09", true)]
-        [DataRow("50", true)]
-        [DataRow("75", true)]
-        [DataRow("25", true)]
+        [DataRow("00")]
+        [DataRow("99")]
+        [DataRow("01")]
+        [DataRow("09")]
+        [DataRow("50")]
+        [DataRow("75")]
+        [DataRow("25")]
         public void TestBirthYearValidatorPositive(string birthyear)
         {
             CprValidator cprValidator = new();
@@ -101,13 +101,13 @@ namespace Mandatory1___testing.UnitTests
         }
 
         [TestMethod]
-        [DataRow("4", false)]
-        [DataRow("9", false)]
-        [DataRow("100", false)]
-        [DataRow("5a", false)]
-        [DataRow("b2", false)]
-        [DataRow("bw", false)]
-        [DataRow(" 70", false)]
+        [DataRow("4")]
+        [DataRow("9")]
+        [DataRow("100")]
+        [DataRow("5a")]
+        [DataRow("b2")]
+        [DataRow("bw")]
+        [DataRow(" 70")]
         public void TestBirthYearValidatorNegative(string birthyear)
         {
             CprValidator cprValidator = new();
@@ -117,12 +117,12 @@ namespace Mandatory1___testing.UnitTests
         }
 
         [TestMethod]
-        [DataRow("0101", "male", true)]
-        [DataRow("3103", "male", true)]
-        [DataRow("5819", "male", true)]
-        [DataRow("0101", "female", true)]
-        [DataRow("0101", "female", true)]
-        [DataRow("0101", "female", true)]
+        [DataRow("0101", "male")]
+        [DataRow("3103", "male")]
+        [DataRow("5819", "male")]
+        [DataRow("0102", "female")]
+        [DataRow("0104", "female")]
+        [DataRow("0106", "female")]
         public void TestLastFourDigitsValidatorPositive(string cpr, string gender)
         {
             CprValidator cprValidator = new();
@@ -132,13 +132,13 @@ namespace Mandatory1___testing.UnitTests
         }
 
         [TestMethod]
-        [DataRow("4", false)]
-        [DataRow("9", false)]
-        [DataRow("100", false)]
-        [DataRow("5a", false)]
-        [DataRow("b2", false)]
-        [DataRow("bw", false)]
-        [DataRow(" 70", false)]
+        [DataRow("4")]
+        [DataRow("9")]
+        [DataRow("100")]
+        [DataRow("5a")]
+        [DataRow("b2")]
+        [DataRow("bw")]
+        [DataRow(" 70")]
         public void TestLastFourDigitsValidatorNegative(string digits)
         {
             CprValidator cprValidator = new();
