@@ -81,6 +81,7 @@ namespace PersonDataAPI.Controllers
         [HttpGet("fake-person")]
         public IActionResult GetPerson()
         {
+
             return Ok(new
             {
                 firstname = "John",
@@ -89,7 +90,6 @@ namespace PersonDataAPI.Controllers
                 gender = "Male",
 
             });
-
         }
 
         [HttpGet("fake-persons/{quantity}")]
@@ -100,12 +100,6 @@ namespace PersonDataAPI.Controllers
             {
                 fakePerson = fakePersons
             });
-
         }
-
-
-
-
-
     }
 }
