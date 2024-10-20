@@ -3,8 +3,15 @@ using PersonDataAPI.Models;
 
 namespace PersonDataAPI.Services
 {
+    public class PersonWrapper
+    {
+        public List<Person> Persons { get; set; }
+    }
+
     public class FakeDataGenerator
     {
+        
+
         public DateTime GenerateRandomBirthdate()
         {
             Random random = new Random();
@@ -59,9 +66,13 @@ namespace PersonDataAPI.Services
 
         public List<Person> ProcessPersonsFromJson()
         {
-            string jsonFilePath = Path.Combine(Directory.GetCurrentDirectory(), "Resources", "persons.json");
+            string jsonFilePath = Path.Combine(Directory.GetCurrentDirectory(), "Resources", "NameData.json");
             string jsonData = File.ReadAllText(jsonFilePath);
-            List<Person> persons = JsonConvert.DeserializeObject<List<Person>>(jsonData);
+            // Deserialize into the wrapper class that contains the "persons" property
+            PersonWrapper wrapper = JsonConvert.DeserializeObject<PersonWrapper>(jsonData);
+
+            // Access the persons list from the wrapper
+            List<Person> persons = wrapper.Persons;
 
             List<Person> processedPersons = new List<Person>();
 
