@@ -1,6 +1,13 @@
+using PersonDataAPI.Services;
+using System.Net;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddScoped<FakeDataGenerator>(); // Register FakeDataGenerator
+ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
 
 builder.Services.AddCors(options =>
 {
@@ -33,3 +40,8 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+namespace PersonDataAPI // Tilføj det namespace, der matcher dit API-projekt
+{
+    public partial class Program { } // Dette er den dummy klasse, som WebApplicationFactory bruger
+}

@@ -9,7 +9,7 @@ namespace PersonDataAPI.Services
 
         public MongoDbService()
         {
-            var client = new MongoClient("mongodb+srv://younzable:I12YCOUoBUUrb3Ah@mandatory1.czm3p.mongodb.net/?retryWrites=true&w=majority&appName=Mandatory1");  // Update the connection string if necessary
+            var client = new MongoClient("mongodb+srv://younzable:I12YCOUoBUUrb3Ah@mandatory1.czm3p.mongodb.net/?ssl=true&retryWrites=true&w=majority&appName=Mandatory1");  // Update the connection string if necessary
             var database = client.GetDatabase("Mandatory1");
             _personsCollection = database.GetCollection<Person>("person-names");
         }
