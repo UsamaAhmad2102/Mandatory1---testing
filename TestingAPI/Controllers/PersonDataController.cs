@@ -5,6 +5,11 @@ using PersonDataAPI.Services;
 using System.Collections.Generic;
 using System.Configuration;
 using PersonDataAPI.Models;
+using System;
+using PersonDataAPI.Services;
+using System.Runtime.ConstrainedExecution;
+using Google.Protobuf.Compiler;
+using System.Reflection;
 
 
 namespace PersonDataAPI.Controllers
@@ -20,7 +25,41 @@ namespace PersonDataAPI.Controllers
             _connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
-       
+        [HttpGet("test")]
+        public IActionResult Test()
+        {
+            FakeDataGenerator generator = new FakeDataGenerator();
+ 
+            string birthdate = generator.GenerateRandomBirthdate();
+            string cpr = generator.GenerateCPR(birthdate, "male");
+            string address = generator.GenerateFakeAddress();
+            string phoneNumber = generator.GeneratePhoneNumber();
+
+
+            Person person = new Person
+            {
+                Firstname = "John",
+                Lastname = "Doe",
+                Gender = "male",
+                CPR = cpr,
+                Birthdate = birthdate,
+                Address = address,
+                MobilePhoneNumber = phoneNumber
+            };
+
+            return Ok(new
+            {
+                firstname = person.Firstname,
+                lastname = person.Lastname,
+                gender = person.Gender,
+                cpr = person.CPR,
+                address = person.Address,
+                birthdate = person.Birthdate,
+                phonenumber = person.MobilePhoneNumber
+            });
+        }
+
+
         [HttpGet("cpr")]
         public IActionResult GetPersonDataCpr()
         {
@@ -51,7 +90,7 @@ namespace PersonDataAPI.Controllers
                 firstname = person.Firstname,
                 lastname = person.Lastname,
                 gender = person.Gender,
-                dateOfBirth = person.Birthdate.ToString("yyyy-MM-dd")  
+                dateOfBirth = person.Birthdate  
             });
         }
 
@@ -143,13 +182,13 @@ namespace PersonDataAPI.Controllers
 
                                 if (reader["dateOfBirth"] != DBNull.Value)
                                 {
-                                    DateTime dateOfBirth = (DateTime)reader["dateOfBirth"];
+                                    string dateOfBirth = (string)reader["dateOfBirth"];
                                     Console.WriteLine($"Retrieved DateOfBirth: {dateOfBirth}");
                                     person.Birthdate = dateOfBirth;
                                 }
                                 else
                                 {
-                                    person.Birthdate = DateTime.MinValue;  // Handle null values
+                                    person.Birthdate = "null";  // Handle null values
                                 }
 
                                 person.Address = reader.GetString(reader.GetOrdinal("address"));

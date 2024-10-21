@@ -78,12 +78,12 @@ namespace Mandatory1___testing.UnitTests
         }
 
         [TestMethod]
-        [DataRow("th1")]
-        [DataRow("th50")]
-        [DataRow("mf1")]
-        [DataRow("mf50")]
-        [DataRow("tv1")]
-        [DataRow("tv50")]
+        [DataRow("th")]
+        [DataRow("mf")]
+        [DataRow("tv")]
+        [DataRow("1")]
+        [DataRow("50")]
+        [DataRow("25")]
         [DataRow("a1")]
         [DataRow("b20")]
         [DataRow("d100")]
@@ -100,12 +100,9 @@ namespace Mandatory1___testing.UnitTests
         }
 
         [TestMethod]
-        [DataRow("th")]
-        [DataRow("mf")]
-        [DataRow("tv")]
         [DataRow("tm")]
-        [DataRow("th0")]
-        [DataRow("th1000")]
+        [DataRow("0")]
+        [DataRow("51")]
         [DataRow("mf0")]
         [DataRow("mf1000")]
         [DataRow("tv0")]

@@ -67,7 +67,7 @@ namespace PersonDataAPI.Services
                                 Lastname = reader.GetString(reader.GetOrdinal("lastname")),
                                 Gender = reader.GetString(reader.GetOrdinal("gender")),
                                 CPR = reader.GetString(reader.GetOrdinal("CPR")),
-                                Birthdate = reader.GetDateTime(reader.GetOrdinal("dateOfBirth")),
+                                Birthdate = reader.GetString(reader.GetOrdinal("dateOfBirth")),
                                 Address = reader.GetString(reader.GetOrdinal("Address")),
                                 MobilePhoneNumber = reader.GetString(reader.GetOrdinal("PhoneNumber"))
                             };

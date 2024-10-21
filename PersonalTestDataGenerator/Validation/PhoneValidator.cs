@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PersonalTestDataGenerator.Validation
 {
-    internal class PhoneValidator
+    public class PhoneValidator
     {
         public bool ValidatePhoneNumberPrefix(string phoneNumber, string[] prefixes)
         {

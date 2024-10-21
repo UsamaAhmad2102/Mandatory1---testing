@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using PersonalTestDataGenerator.Models;
+using PersonalTestDataGenerator.Validation;
 
 
 
@@ -14,6 +15,9 @@ namespace PersonalTestDataGenerator
         public string lastName;
         public string gender;
         public DateTime birthDate;
+        public string birthDateDay;
+        public string birthDateMonth;
+        public string birthDateYear;
         public string cpr;
         public string postalcode;
         public string street; // er der en grund til at disse at vi gemmer adressen som fire strings i stedet for en Address?
@@ -25,6 +29,7 @@ namespace PersonalTestDataGenerator
         public string jsonFilePath = "NameData.json";
         public string connectionString = "Server=tcp:schoolworkkea.database.windows.net,1433;Initial Catalog=TestingMandatory;Persist Security Info=False;User ID=younzable;Password=-+9?B'eW4Z-^DwM;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         private MySqlConnection connection;
+        private AddressValidator addressValidator = new();
 
 
         public FakeInfoGenerator(string connectionString = null)
@@ -221,7 +226,10 @@ namespace PersonalTestDataGenerator
             DateTime startDate = new DateTime(1900, 1, 1);
             int range = (DateTime.Today - startDate).Days;
             int randomDay = random.Next(range);
-            this.birthDate = startDate.AddDays(randomDay);
+            DateTime birthDate = startDate.AddDays(randomDay);
+            string day = birthDate.Day.ToString("00");
+            string month = birthDate.Month.ToString("00");
+            string year = (birthDate.Year % 100).ToString("00");
         }
 
         public void setCpr() {

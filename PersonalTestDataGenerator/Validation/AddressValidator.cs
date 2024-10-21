@@ -19,7 +19,7 @@ namespace PersonalTestDataGenerator.Validation
 
         public bool ValidateDoor(string floor)
         {
-            Regex firstNamingConvention = new Regex(@"^((th|mf|tv)?([1-9]|[1234][0-9]|50))$");
+            Regex firstNamingConvention = new Regex(@"^((th|mf|tv)|([1-9]|[1234][0-9]|50))$");
             Regex secondNamingConvention = new Regex(@"^[a-z]-?[1-9]\d{0,2}$");
             Regex floorMatcher = new($@"^(({firstNamingConvention})|({secondNamingConvention}))$");
 
